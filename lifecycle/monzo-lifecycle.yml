@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.monzo.com
+versioning:
+  scheme: none-declared
+  current: null
+  docs: https://docs.monzo.com
+  note: >-
+    Resource paths under https://api.monzo.com are unversioned; no version
+    segment or version header is documented.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No formal, published API deprecation or Sunset-header (RFC 8594) policy was
+    found in the developer documentation.
+status_page: https://status.monzo.com
+status_page_alt: https://monzo.statuspage.io
+sla:
+  url: null
+  note: >-
+    No developer-API SLA / uptime target is published; Monzo publishes overall
+    service status via its status page.
+access_window:
+  note: >-
+    Access to transactions older than 90 days is revoked five minutes after
+    authentication unless the user re-approves ongoing access via Strong
+    Customer Authentication.

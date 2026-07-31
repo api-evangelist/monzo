@@ -1,0 +1,59 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.monzo.com
+authentication:
+  style: oauth2-bearer
+  header: 'Authorization: Bearer {access_token}'
+  ref: authentication/monzo-authentication.yml
+idempotency:
+  supported: true
+  mechanism: dedupe_id
+  scope:
+  - PUT /pots/{pot_id}/deposit
+  - PUT /pots/{pot_id}/withdraw
+  description: >-
+    Pot deposit and withdraw operations require a client-supplied dedupe_id.
+    Monzo uses this value to deduplicate requests so that a retried deposit or
+    withdrawal is only applied once, providing safe retries for money
+    movement. It is a per-operation idempotency key rather than a global
+    Idempotency-Key header.
+pagination:
+  style: cursor-and-time
+  params:
+  - name: limit
+    description: Number of results per page. Default 30, maximum 100.
+  - name: since
+    description: RFC 3339 timestamp or an object id; returns results after this point.
+  - name: before
+    description: RFC 3339 timestamp; returns results before this point.
+  applies_to:
+  - GET /transactions
+expansion:
+  style: expand-array
+  param: 'expand[]'
+  example: 'expand[]=merchant'
+  description: >-
+    Related objects can be inlined into a response using the expand[] query
+    parameter (for example expand[]=merchant on transaction endpoints).
+metadata:
+  supported: true
+  description: >-
+    Arbitrary key-value metadata can be attached to a transaction via
+    PATCH /transactions/{transaction_id} using metadata[key]=value form
+    parameters. Setting a value to an empty string removes the key.
+versioning:
+  scheme: none-declared
+  note: >-
+    The API is served from https://api.monzo.com with unversioned resource
+    paths; there is no version segment or version header documented.
+error_envelope:
+  ref: errors/monzo-problem-types.yml
+  shape: >-
+    Errors return an appropriate HTTP status code with a JSON body. OAuth
+    errors use {"error", "error_description"}; API errors use a code/message
+    style body.
+rate_limiting:
+  signal: http-429
+  note: >-
+    HTTP 429 Too Many Requests is returned when rate limits are exceeded; no
+    specific numeric limits or rate-limit response headers are documented.

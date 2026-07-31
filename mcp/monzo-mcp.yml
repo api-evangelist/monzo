@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: https://docs.monzo.com
+note: >-
+  No official hosted/remote Monzo MCP server was found. This is a candidate tool
+  list derived from the documented Monzo REST API operations; each tool maps to a
+  real documented endpoint. It is a design starting point, not a published server.
+server:
+  name: monzo
+  transport: http
+tools:
+- name: list_accounts
+  description: List the authenticated user's Monzo accounts.
+  source_operation: GET https://api.monzo.com/accounts
+- name: get_balance
+  description: Read the balance, total balance and spend-today for an account.
+  source_operation: GET https://api.monzo.com/balance
+- name: list_pots
+  description: List the savings pots for a current account.
+  source_operation: GET https://api.monzo.com/pots
+- name: deposit_into_pot
+  description: Move money from an account into a pot (requires dedupe_id).
+  source_operation: PUT https://api.monzo.com/pots/{pot_id}/deposit
+- name: withdraw_from_pot
+  description: Move money from a pot back into an account (requires dedupe_id).
+  source_operation: PUT https://api.monzo.com/pots/{pot_id}/withdraw
+- name: list_transactions
+  description: List transactions for an account with pagination and expansion.
+  source_operation: GET https://api.monzo.com/transactions
+- name: get_transaction
+  description: Retrieve a single transaction, optionally expanding the merchant.
+  source_operation: GET https://api.monzo.com/transactions/{transaction_id}
+- name: annotate_transaction
+  description: Attach or remove custom metadata key-value pairs on a transaction.
+  source_operation: PATCH https://api.monzo.com/transactions/{transaction_id}
+- name: create_feed_item
+  description: Post a custom item into the user's Monzo app feed.
+  source_operation: POST https://api.monzo.com/feed
+- name: register_webhook
+  description: Register a webhook to receive transaction.created events.
+  source_operation: POST https://api.monzo.com/webhooks
+- name: list_webhooks
+  description: List webhooks registered for an account.
+  source_operation: GET https://api.monzo.com/webhooks
+- name: delete_webhook
+  description: Delete a registered webhook.
+  source_operation: DELETE https://api.monzo.com/webhooks/{webhook_id}
+- name: upsert_receipt
+  description: Create or update an itemised receipt for a transaction.
+  source_operation: PUT https://api.monzo.com/transaction-receipts

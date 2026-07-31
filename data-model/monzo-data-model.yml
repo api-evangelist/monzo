@@ -1,0 +1,66 @@
+generated: '2026-07-20'
+method: derived
+source: https://docs.monzo.com
+entities:
+- name: Account
+  id_field: account_id
+  description: A Monzo account (e.g. uk_retail, uk_retail_joint).
+- name: Balance
+  description: The balance, total balance, spend-today and currency for an account.
+- name: Pot
+  id_field: pot_id
+  description: A named savings pot belonging to a current account.
+- name: Transaction
+  id_field: transaction_id
+  description: A single transaction on an account, with amount, currency, category and metadata.
+- name: Merchant
+  id_field: merchant_id
+  description: The merchant associated with a transaction (inlined via expand[]=merchant).
+- name: FeedItem
+  description: A custom item posted into the user's app feed.
+- name: Attachment
+  id_field: attachment_id
+  description: An image (e.g. receipt photo) registered against a transaction.
+- name: Receipt
+  id_field: external_id
+  description: An itemised receipt (line items, taxes, payments) attached to a transaction.
+- name: Webhook
+  id_field: webhook_id
+  description: A registered endpoint that receives transaction.created events.
+relationships:
+- from: Balance
+  to: Account
+  type: belongs_to
+  via: account_id
+- from: Pot
+  to: Account
+  type: belongs_to
+  via: current_account_id
+- from: Transaction
+  to: Account
+  type: belongs_to
+  via: account_id
+- from: Transaction
+  to: Merchant
+  type: has_one
+  via: merchant
+- from: Attachment
+  to: Transaction
+  type: belongs_to
+  via: external_id
+- from: Receipt
+  to: Transaction
+  type: belongs_to
+  via: transaction_id
+- from: Webhook
+  to: Account
+  type: belongs_to
+  via: account_id
+- from: Account
+  to: Transaction
+  type: has_many
+  via: account_id
+- from: Account
+  to: Pot
+  type: has_many
+  via: current_account_id

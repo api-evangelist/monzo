@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.monzo.com
+docs: https://docs.monzo.com
+summary:
+  types:
+  - oauth2
+  - http
+  oauth2_flows:
+  - authorizationCode
+  http_schemes:
+  - bearer
+  notes: >-
+    Monzo uses OAuth 2.0 authorization code grant. Users authenticate and
+    authorise in the browser at auth.monzo.com; the resulting access token is
+    presented as an HTTP Bearer token on every API request. Strong Customer
+    Authentication (SCA) requires the user to approve access from a push
+    notification inside the Monzo mobile app. Access to transaction history
+    older than 90 days is revoked five minutes after authentication unless the
+    user approves ongoing access via SCA.
+schemes:
+- name: OAuth2
+  type: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://auth.monzo.com/
+  tokenUrl: https://api.monzo.com/oauth2/token
+  refresh: true
+  refresh_note: >-
+    Refresh tokens are only issued to confidential clients. Public
+    (non-confidential) clients must re-authenticate when the access token
+    expires.
+  logout: https://api.monzo.com/oauth2/logout
+  sources:
+  - https://docs.monzo.com
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  parameter: Authorization
+  sources:
+  - https://docs.monzo.com

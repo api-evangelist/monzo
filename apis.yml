@@ -1,22 +1,170 @@
 aid: monzo
 name: Monzo
-description: Monzo is a company surfaced as a portfolio company of general-catalyst and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Monzo is a UK-based digital challenger bank (Monzo Bank Ltd, FCA-authorised)
+  offering current accounts, savings pots, joint accounts, business banking and
+  lending through a mobile-first app. For developers, Monzo publishes a public
+  REST API at api.monzo.com that lets a user build personal applications against
+  their own Monzo account: listing accounts, reading balances, managing savings
+  pots, retrieving and annotating transactions, uploading receipts and
+  attachments, posting custom feed items into the app, and registering webhooks
+  for real-time transaction notifications. Access uses OAuth 2.0 with Strong
+  Customer Authentication (SCA) approved via push notification in the Monzo app.
+  The API is intended for personal use and small groups of authorised users
+  rather than large public applications.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://monzo.com/static/images/favicon.png
 url: https://raw.githubusercontent.com/api-evangelist/monzo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - general-catalyst
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-portfolio-lead
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Banking
+- Fintech
+- Financial Services
+- Payments
+- Open Banking
+- Accounts
+- Transactions
+- OAuth
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: VulnerabilityDisclosure
+  url: security/monzo-vulnerability-disclosure.yml
+- name: Monzo Security Policy & Bug Bounty
+  url: https://monzo.com/.well-known/security.txt
+  type: Security
+- type: DomainSecurity
+  url: security/monzo-domain-security.yml
+- name: Monzo security.txt
+  url: well-known/monzo-security.txt
+  type: SecurityTxt
+- name: Monzo Well-Known Index
+  url: well-known/monzo-well-known.yml
+  type: WellKnown
+- name: Monzo Authentication Profile
+  url: authentication/monzo-authentication.yml
+  type: Authentication
+- name: Monzo API Conventions
+  url: conventions/monzo-conventions.yml
+  type: Conventions
+- name: Monzo Idempotency (dedupe_id)
+  url: conventions/monzo-conventions.yml
+  type: Idempotency
+- name: Monzo Error Catalog
+  url: errors/monzo-problem-types.yml
+  type: ErrorCatalog
+- name: Monzo Lifecycle
+  url: lifecycle/monzo-lifecycle.yml
+  type: Lifecycle
+- name: Monzo Conformance
+  url: conformance/monzo-conformance.yml
+  type: Conformance
+- name: Monzo Data Model
+  url: data-model/monzo-data-model.yml
+  type: DataModel
+- name: Monzo API Playground
+  url: sandbox/monzo-sandbox.yml
+  type: Sandbox
+- name: Monzo MCP (candidate)
+  url: mcp/monzo-mcp.yml
+  type: MCPServer
+- name: Monzo llms.txt
+  url: llms/monzo-llms.txt
+  type: LLMsTxt
+- name: Monzo Webhooks
+  url: asyncapi/monzo-webhooks.yml
+  type: Webhooks
+- name: Monzo Agent Skills
+  url: skills/_index.yml
+  type: AgentSkill
+- name: Monzo
+  url: https://monzo.com
+  type: Website
+- name: Monzo for Developers
+  url: https://developers.monzo.com
+  type: DeveloperPortal
+- name: Monzo API Documentation
+  url: https://docs.monzo.com
+  type: Documentation
+- name: Monzo API Reference
+  url: https://docs.monzo.com
+  type: APIReference
+- name: Monzo Developer Playground
+  url: https://developers.monzo.com/api/playground
+  type: GettingStarted
+- name: Monzo Blog
+  url: https://monzo.com/blog/
+  type: Blog
+- name: Monzo Community
+  url: https://community.monzo.com
+  type: Support
+- name: Monzo on GitHub
+  url: https://github.com/monzo
+  type: GitHubOrganization
+- name: Monzo Status
+  url: https://status.monzo.com
+  type: StatusPage
+- name: Monzo Terms and Conditions
+  url: https://monzo.com/legal/terms-and-conditions/
+  type: TermsOfService
+- name: Monzo Privacy Policy
+  url: https://monzo.com/legal/privacy-policy/
+  type: PrivacyPolicy
+apis:
+- aid: monzo:monzo-api
+  name: Monzo API
+  humanURL: https://docs.monzo.com
+  baseURL: https://api.monzo.com
+  tags:
+  - Banking
+  - Accounts
+  - Balance
+  - Pots
+  - Transactions
+  - Feed
+  - Attachments
+  - Receipts
+  - Webhooks
+  properties:
+  - url: https://docs.monzo.com
+    type: Documentation
+  - url: https://docs.monzo.com
+    type: APIReference
+  - url: https://developers.monzo.com/api/playground
+    type: GettingStarted
+  description: >-
+    The Monzo API is a REST interface over a user's Monzo account. It exposes
+    accounts, balance, savings pots (with deposit/withdraw), transactions
+    (list, retrieve, annotate with metadata, expand merchant), feed items,
+    attachments, transaction receipts, and webhooks for real-time
+    transaction.created notifications. Authentication is OAuth 2.0
+    (authorization code grant) with Strong Customer Authentication approved in
+    the Monzo mobile app; all requests carry a Bearer access token.

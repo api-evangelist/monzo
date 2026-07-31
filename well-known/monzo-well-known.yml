@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: live probe of /.well-known/ paths on Monzo hosts
+hosts:
+- host: https://monzo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: monzo-security.txt
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://api.monzo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://developers.monzo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: >-
+      developers.monzo.com is a single-page app that returns HTTP 200 with the
+      SPA shell for unknown paths; the canonical machine-readable security.txt
+      lives at https://monzo.com/.well-known/security.txt

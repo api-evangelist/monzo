@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.monzo.com
+type: Webhooks
+transport: http-post
+description: >-
+  Monzo delivers real-time event notifications via user-registered webhooks. A
+  webhook is registered against an account with POST /webhooks; Monzo then POSTs
+  a JSON event body to the registered URL each time a matching event occurs.
+  Delivery is retried up to 5 times with exponential backoff.
+registration:
+  register: POST https://api.monzo.com/webhooks
+  list: GET https://api.monzo.com/webhooks
+  delete: DELETE https://api.monzo.com/webhooks/{webhook_id}
+events:
+- type: transaction.created
+  description: >-
+    Fired immediately when a new transaction is created on the account. The
+    payload wraps the full transaction object (including merchant details when
+    present) under a "type" and "data" envelope.
+delivery:
+  method: HTTP POST JSON
+  retries: 5
+  backoff: exponential

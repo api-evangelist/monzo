@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.monzo.com/api/playground
+type: Sandbox
+name: Monzo API Playground
+url: https://developers.monzo.com/api/playground
+description: >-
+  Monzo does not run a separate synthetic sandbox with fabricated test cards.
+  Instead, developers use the Playground in the developer portal: after signing
+  in with a real Monzo account and creating an OAuth client, the Playground
+  issues an access token scoped to the developer's own account so requests can
+  be tried live against api.monzo.com. Clients are created and managed at
+  https://developers.monzo.com. No published, fabricated test credentials or
+  test card numbers exist to capture.
+client_types:
+- confidential: Server-side clients that can hold a secret; receive refresh tokens.
+- non-confidential: Public clients; must re-authenticate when the access token expires.
+notes:
+- Real-account, developer-scoped testing rather than a mocked test environment.
+- Transaction history beyond 90 days requires ongoing SCA approval.

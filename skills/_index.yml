@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: generated
+source: https://docs.monzo.com
+note: >-
+  Monzo publishes no OpenAPI. These Agent Skills are grounded in the real,
+  documented HTTP operations (method + path) from https://docs.monzo.com and the
+  captured conventions/errors/authentication artifacts in this repo.
+skills:
+- file: monzo-manage-savings-pots.md
+  name: Move money between an account and savings pots
+  api: https://docs.monzo.com
+  operations:
+  - GET /pots
+  - PUT /pots/{pot_id}/deposit
+  - PUT /pots/{pot_id}/withdraw
+- file: monzo-track-transactions.md
+  name: List, retrieve and annotate transactions
+  api: https://docs.monzo.com
+  operations:
+  - GET /accounts
+  - GET /transactions
+  - GET /transactions/{transaction_id}
+  - PATCH /transactions/{transaction_id}
+- file: monzo-realtime-webhooks.md
+  name: Receive real-time transaction notifications via webhooks
+  api: https://docs.monzo.com
+  operations:
+  - POST /webhooks
+  - GET /webhooks
+  - DELETE /webhooks/{webhook_id}

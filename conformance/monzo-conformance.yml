@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: derived
+source: https://docs.monzo.com
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    OAuth 2.0 authorization code grant with token/refresh endpoints
+    (auth.monzo.com, api.monzo.com/oauth2/token) documented.
+- id: oauth2-sca
+  conforms: true
+  evidence: >-
+    Strong Customer Authentication enforced via in-app push approval, aligning
+    with PSD2 SCA requirements for UK banking access.
+- id: rfc6749-oauth-errors
+  conforms: true
+  evidence: OAuth errors returned as {error, error_description} (e.g. invalid_token).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error bodies are Monzo JSON, not application/problem+json.
+- id: rest-json
+  conforms: true
+  evidence: Resource-oriented REST endpoints returning JSON over HTTPS.
+- id: webhooks
+  conforms: true
+  evidence: Registerable webhooks deliver transaction.created events with retry/backoff.
+- id: openapi
+  conforms: false
+  evidence: No machine-readable OpenAPI/Swagger specification is published.
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+  evidence: >-
+    The public developer API is not the Open Banking / FAPI-secured interface;
+    no FAPI security profile is declared for api.monzo.com.

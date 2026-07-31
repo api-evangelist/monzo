@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.monzo.com
+format: monzo-json
+envelope: >-
+  Errors are returned with a standard HTTP status code and a JSON body. OAuth
+  2.0 errors follow RFC 6749 with {"error", "error_description"} (for example
+  invalid_token for an expired or invalid access token). Other API errors return
+  a JSON object describing the problem. Responses are NOT RFC 9457
+  application/problem+json.
+problems:
+- status: 400
+  name: Bad Request
+  description: Your request has missing arguments or is malformed.
+- status: 401
+  name: Unauthorized
+  description: >-
+    Your request is not authenticated, or the access token is missing, expired
+    or invalid (OAuth error invalid_token).
+- status: 403
+  name: Forbidden
+  description: Your request is authenticated but does not have sufficient permissions.
+- status: 404
+  name: Not Found
+  description: The requested resource does not exist.
+- status: 405
+  name: Method Not Allowed
+  description: You are using an incorrect HTTP verb for this resource.
+- status: 406
+  name: Not Acceptable
+  description: Your application does not accept the content format returned by this resource.
+- status: 429
+  name: Too Many Requests
+  description: Your application is being rate limited; retry after a backoff.
+- status: 500
+  name: Internal Server Error
+  description: Something went wrong on Monzo's end.
+- status: 504
+  name: Gateway Timeout
+  description: Something has timed out on Monzo's end.
+oauth_errors:
+- error: invalid_token
+  description: The access token is expired or otherwise invalid.
