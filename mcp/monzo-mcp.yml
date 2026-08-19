@@ -2,10 +2,9 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: https://docs.monzo.com
-note: >-
-  No official hosted/remote Monzo MCP server was found. This is a candidate tool
-  list derived from the documented Monzo REST API operations; each tool maps to a
-  real documented endpoint. It is a design starting point, not a published server.
+note: No official hosted/remote Monzo MCP server was found. This is a candidate tool list derived from
+  the documented Monzo REST API operations; each tool maps to a real documented endpoint. It is a design
+  starting point, not a published server.
 server:
   name: monzo
   transport: http
@@ -49,3 +48,9 @@ tools:
 - name: upsert_receipt
   description: Create or update an itemised receipt for a transaction.
   source_operation: PUT https://api.monzo.com/transaction-receipts
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
