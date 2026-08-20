@@ -44,6 +44,16 @@ tags:
 - Company
 - Banking
 - Fintech
+- Financial-Services
+- Payments
+- Open Banking
+- Account
+- Transaction
+- Authentication
+tags_raw:
+- Company
+- Banking
+- Fintech
 - Financial Services
 - Payments
 - Open Banking
@@ -144,6 +154,16 @@ apis:
   humanURL: https://docs.monzo.com
   baseURL: https://api.monzo.com
   tags:
+  - Banking
+  - Account
+  - Balances
+  - Pots
+  - Transaction
+  - Feed
+  - Attachments
+  - Receipts
+  - Webhook
+  tags_raw:
   - Banking
   - Accounts
   - Balance
