@@ -55,12 +55,13 @@ tags:
 - Company
 - Banking
 - Fintech
-- Financial-Services
+- Financial Services
 - Payments
 - Open Banking
 - Account
 - Transaction
 - Authentication
+- Consumer Banking
 tags_raw:
 - Company
 - Banking
@@ -71,6 +72,8 @@ tags_raw:
 - Accounts
 - Transactions
 - OAuth
+- Financial-Services
+- Consumer Banking
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
