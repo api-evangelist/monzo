@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/monzo/integrations
 - https://n8n.io/integrations/monzo/
@@ -9,8 +9,26 @@ checked:
 - https://composio.dev/toolkits/monzo
 - https://monid.ai/tools/monzo
 - https://n8n.io/integrations/monzo/
+- https://www.openbanking.org.uk/regulated-providers/monzo-bank-ltd/
 - https://zapier.com/apps/monzo/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: UK Open Banking
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.openbanking.org.uk/regulated-providers/monzo-bank-ltd/
+  contract_reference:
+    register: UK Open Banking regulated providers (OBL directory)
+    spec_file: null
+    role: Account Providers
+    registered_name: Monzo Bank Ltd
+    register_id: https://register.fca.org.uk/s/firm?id=001b000002syvKiAAI
+    matched_domain: monzo.com
+    api_families: null
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
 templates: []
