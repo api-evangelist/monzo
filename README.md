@@ -64,6 +64,109 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Monzo is a company surfaced as a portfolio company of general-catalyst and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Monzo is a UK-based digital challenger bank (Monzo Bank Ltd, FCA-authorised) offering current accounts, savings pots, joint accounts, business banking and lending through a mobile-first app. For developers, Monzo publishes a public REST API at api.monzo.com that lets a user build personal applications against their own Monzo account: listing accounts, reading balances, managing savings pots, retrieving and annotating transactions, uploading receipts and attachments, posting custom feed items into the app, and registering webhooks for real-time transaction notifications. Access uses OAuth 2.0 with Strong Customer Authentication (SCA) approved via push notification in the Monzo app. The API is intended for personal use and small groups of authorised users rather than large public applications.
 
-Backed by: general-catalyst
+**Areas:** Company · Banking · Fintech · Financial Services · Payments · Open Banking · Account · Transaction · Authentication · Consumer Banking
+
+## Monzo on APIs.io
+
+Everything profiled for Monzo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/monzo/](https://apis.io/providers/monzo/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Monzo API](https://apis.io/apis/monzo/monzo-api/) — The Monzo API is a REST interface over a user's Monzo account. It exposes accounts, balance, savings pots (with deposit/withdraw), transactions (list,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Monzo Webhooks](https://apis.io/asyncapis/monzo/monzo-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [monzo](https://apis.io/servers/monzo/monzo/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Monzo Authentication](https://apis.io/security/monzo/monzo-authentication/)
+- [Monzo Domain Security](https://apis.io/security/monzo/monzo-domain-security/)
+- [Monzo Vulnerability Disclosure](https://apis.io/security/monzo/monzo-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://monzo.com)
+- [Documentation](https://docs.monzo.com)
+- [Getting started](https://developers.monzo.com/api/playground)
+- [API reference](https://docs.monzo.com)
+- [Support](https://community.monzo.com)
+- [Blog](https://monzo.com/blog/)
+- [Security](https://monzo.com/.well-known/security.txt)
+- [Terms of service](https://monzo.com/legal/terms-and-conditions/)
+- [Privacy policy](https://monzo.com/legal/privacy-policy/)
+- [GitHub](https://github.com/monzo)
+- [Status](https://status.monzo.com)
+
+## API Evangelist rating
+
+**Kin Score 40.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 39.5 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 26.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 24.4** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/monzo/](https://apis.io/providers/monzo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Monzo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/monzo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
